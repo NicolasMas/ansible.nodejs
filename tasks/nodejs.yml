@@ -1,0 +1,14 @@
+---
+
+- name: nodejs  | download the nodesource rpm
+  get_url: url={{ nodejs_epel_package }}  dest={{ nodejs_tmp_dir }}
+
+- name: nodejs  | add the RPM to yum
+  command: rpm -i --nosignature --force "{{ nodejs_tmp_dir }}{{ nodejs_rpm }}"
+
+- name: nodejs  | install rpm via yum
+  yum: name=nodejs state=present
+
+- name: nodejs  | install NPM modules
+  npm: name={{item}} global=yes
+  with_items: nodejs_npm_modules

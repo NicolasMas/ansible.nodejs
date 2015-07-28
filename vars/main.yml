@@ -1,0 +1,20 @@
+---
+
+nodejs_enabled: yes
+
+#
+nodejs_tmp_dir: /tmp/
+
+# yum and EPEL
+# from https://rpm.nodesource.com/pub/el/7/x86_64/
+nodejs_rpm: nodesource-release-el7-1.noarch.rpm # which is the v.10.40 version
+nodejs_epel_package: "https://rpm.nodesource.com/pub/el/7/x86_64/{{ nodejs_rpm }}"
+
+# build from source
+nodejs_version: 0.12.7 #TODO
+nodejs_src_url: "http://nodejs.org/dist/v{{nodejs_version}}/node-v{{nodejs_version}}.tar.gz" #TODO
+nodejs_home:  /opt/nodejs #TODO
+
+
+#npm
+nodejs_npm_modules: []
